@@ -24,7 +24,7 @@ class ResepTableViewController: UITableViewController {
         super.viewDidLoad()
 
         
-        print("id + " + nampungId!)
+//        print("id + " + nampungId!)
         
         let params = ["id_nama" : nampungId]
         let url = "http://localhost/Bango/index.php/api/getresep"
@@ -115,7 +115,7 @@ class ResepTableViewController: UITableViewController {
                 let controller = segue.destination as! DetailViewController
                 let value = arrayresep[indexPath.row]
                 
-                controller.passResep = value["resep"] as! String
+                controller.passResep = value["nama"] as! String
                 controller.passWaktu = value["waktu"] as! String
                 controller.passOrang = value["orang"] as! String
                 controller.passHarga = value["harga"] as! String
