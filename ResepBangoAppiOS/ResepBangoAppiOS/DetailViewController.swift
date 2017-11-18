@@ -13,8 +13,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var Waktu: UILabel!
     @IBOutlet weak var Orang: UILabel!
     @IBOutlet weak var Harga: UILabel!
-    @IBOutlet weak var Bahan: UILabel!
-    @IBOutlet weak var Cara: UILabel!
+    @IBOutlet weak var Bahan: UITextView!
+    @IBOutlet weak var Cara: UITextView!
     
     var passResep:String?
     var passWaktu:String?

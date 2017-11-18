@@ -12,6 +12,9 @@ import Alamofire
 import SwiftyJSON
 
 class LoginViewController: UIViewController {
+    
+    var arrkategori = [[String:String]]()
+    
     @IBOutlet weak var etUserName: UITextField!
     @IBOutlet weak var etPassWord: UITextField!
     
@@ -36,7 +39,7 @@ userDefaults = UserDefaults.standard
         }else{
             let params = ["email" : nilaiUser, "password" : nilaiPass]
             
-            let url = "http://localhost/kelas/index.php/api/getlogin"
+            let url = "http://localhost/Bango/index.php/api/getlogin"
             
             Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON(completionHandler: { (responseServer) in
                 
@@ -65,6 +68,20 @@ userDefaults = UserDefaults.standard
                 }
             })
         }
+        
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+                        
+                        let idStoryBoard = storyboard?.instantiateViewController(withIdentifier:"passKantau") as! ResepTableViewController
+                        
+                        let id_nama = arrkategori[indexPath.row] ["id_nama"]
+                        // variable menampilkan nampung idkategori lempar
+                        idStoryBoard.nampungId = id_nama
+                        
+                        show(idStoryBoard, sender: self)
+                        
+                    }
+                    
+             
     }
     
     override func didReceiveMemoryWarning() {

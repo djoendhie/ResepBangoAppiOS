@@ -23,7 +23,6 @@ class TambahViewController: UIViewController {
  
     }
     @IBAction func btnDaftar(_ sender: Any) {
-        // deklarasi var untu mengambil nilai dari msg 2 widged
         let nilaiResep = etResep.text
         let nilaiWaktu = etWaktu.text
         let nilaiOrang = etOrang.text
@@ -42,11 +41,11 @@ class TambahViewController: UIViewController {
         }else{
             //apabila widget tdk kosong
             // membuat parameter intuk d simpan ke data base
-            let params = ["Resep" : nilaiResep!, "Waktu" : nilaiWaktu!, "Orang" : nilaiOrang, "Harga" : nilaiHarga!, "Bahan" : nilaiBahan!, "cara" : nilaiCara]
+            let params = ["nama" : nilaiResep!, "waktu" : nilaiWaktu!, "Orang" : nilaiOrang!, "harga" : nilaiHarga!, "bahan" : nilaiBahan!, "cara" : nilaiCara]
             // mencetak nilai params yg d kirim
             print(params)
             
-            let url = "http://localhost/Bango/index.php/api/getdaftar"
+            let url = "http://localhost/Bango/index.php/api/getTambah"
             
             Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON(completionHandler: { (responseServer) in
                 
